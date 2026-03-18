@@ -25,6 +25,15 @@ module fetch_stage (
 );
 
     // TODO: Delete the following line and implement this module.
-    ref_fetch_stage golden(.*);
+    //ref_fetch_stage golden(.*);
+
+    always ff @(posedge clk or posedge rst) begin
+        instruction_reg_out <= constants::RESET_ADDRESS; //determined by constants in /defines/constants.sv
+        next_program_counter_reg_out <= constants::MEMORY_START;
+        status_forwards_out <= pipeline_status::forwards_t::VALID;
+    end else begin
+        //implement fetch logic here: handling wishbone interface, updating
+        // the program counter, and managing pipeline control signals
+    end
 
 endmodule
