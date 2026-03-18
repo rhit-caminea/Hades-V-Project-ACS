@@ -158,7 +158,7 @@ module cpu (
         .status_backwards_out(status_backwards_decode_out),
         .jump_address_backwards_in(jump_address_decode_in),
         .jump_address_backwards_out(jump_address_decode_out)
-    )
+    );
 
 
     execute_stage executeStage(
@@ -187,10 +187,10 @@ module cpu (
 
 
         .jump_address_backwards_in(jump_address_execute_in),
-        .jump_address_backwards_out(jump_address_execute_out)
+        .jump_address_backwards_out(jump_address_execute_out),
 
 
-    )
+    );
 
 
     memory_stage memoryStage(
@@ -216,10 +216,10 @@ module cpu (
         .status_backwards_in(status_backwards_memory_out),
         .status_backwards_out(status_backwards_memory_in),
         .jump_address_backwards_in(jump_address_memory_in),
-        .jump_address_backwards_out(jump_address_memory_out)
+        .jump_address_backwards_out(jump_address_memory_out),
 
 
-    )
+    );
 
 
     writeback_stage writebackStage(
@@ -246,7 +246,7 @@ module cpu (
         .jump_address_backwards_out(jump_address_writeback_out),
 
 
-    )
+    );
 
 
 endmodule
