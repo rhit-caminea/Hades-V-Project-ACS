@@ -24,6 +24,11 @@ module fetch_stage (
     input  logic [31:0] jump_address_backwards_in
 );
 
+    //placeholders
+    logic[31:0] program_counter;
+    logic[31:0] instruction;
+
+
     // DONE: Delete the following line and implement this module.
     //ref_fetch_stage golden(.*);
 
@@ -34,8 +39,17 @@ module fetch_stage (
             status_forwards_out <= pipeline_status::forwards_t::VALID;
     end else begin
         if(status_backwards_in == pipeline_status::backwards_t::VALID) begin
-        //implement fetch logic here: handling wishbone interface, updating
-        // the program counter, and managing pipeline control signals
+            //implement fetch logic here: handling wishbone interface, updating
+            // the program counter, and managing pipeline control signals
+            instruction_reg_out <= instruction;
+            program_counter_reg_out <= program_counter;
+            status_forwards_out <= pipeline_status::forwards_t::VALID
+
+        end else begin
+        end
     end
+    end
+
+
 
 endmodule
